@@ -1,4 +1,4 @@
-import { Alert, AlertTitle, Paper, Typography } from '@mui/material';
+import { Paper, Typography } from '@mui/material';
 import { useCallback, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 
@@ -7,7 +7,7 @@ import classes from "./styles.module.css";
 
 import Validation from "src/models/Validation"
 
-import { Button, Input } from "src/components/signup-page"
+import { Button, DefaultContainer, Input } from "src/components/signup-page"
 
 const Container = () => {
     const [ errors, setErrors ] = useState({
@@ -74,11 +74,19 @@ const Container = () => {
     }, [])
 
     return (
-        <div className="min-h-screen flex items-center justify-center w-full px-5 md:px-0 dark:bg-stone-500">
-            <Paper 
-                className={classNames(classes.loginContainer, `px-5 py-8 rounded-2xl w-full md:px-6 dark:bg-stone-900`)}
-                component="form"
-                elavation={0}>
+        <DefaultContainer>
+            <div className={classNames(classes.content, "flex-col hidden items-center justify-center rounded-l-2xl text-white")}>
+                <Typography
+                    component="h1"
+                    className="font-bold text-4xl uppercase">
+                    Logo
+                </Typography>
+                <Typography
+                    className="mt-2">
+                    Welcome back!
+                </Typography>
+            </div>
+            <form className={classNames(classes.form, "flex-col items-stretch justify-center px-5 py-8 md:px-6 ")}>
                 <Typography className="font-bold mb-8 text-center text-2xl uppercase  dark:text-slate-300">
                     Sign up
                 </Typography>
@@ -125,8 +133,8 @@ const Container = () => {
                         <Button disabled={hasErrors}>Submit</Button>
                     </div>
                 </fieldset>
-            </Paper>
-        </div>
+            </form>
+        </DefaultContainer>
     );
 };
 
