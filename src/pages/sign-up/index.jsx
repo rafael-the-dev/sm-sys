@@ -118,21 +118,21 @@ const Container = () => {
                         placeholder="Comfirm password"
                         ref={confirmPasswordRef}
                     />
-                    <div 
-                        className={classNames("flex flex-col sm:items-center mt-6")}>
-                        <Typography component="p" className="ml-4 text-sm dark:text-slate-400">
-                            have an account? 
-                            <Link href="/login">
-                                <a 
-                                    className={classNames(classes.signUpLink, 
-                                    "ml-2 text-blue-700 uppercase underline hover:opacity-90")}>
-                                    sign in.
-                                </a>
-                            </Link>
-                        </Typography>
-                        <Button disabled={hasErrors}>Submit</Button>
-                    </div>
                 </fieldset>
+                <div 
+                    className={classNames("flex flex-col sm:items-center mt-6")}>
+                    <Typography component="p" className="ml-4 text-sm dark:text-slate-400">
+                        have an account? 
+                        <Link href="/login">
+                            <a 
+                                className={classNames(classes.signUpLink, 
+                                "ml-2 text-amber-600 uppercase underline hover:opacity-90")}>
+                                sign in.
+                            </a>
+                        </Link>
+                    </Typography>
+                    <Button disabled={hasErrors}>Submit</Button>
+                </div>
             </form>
         </DefaultContainer>
     );
