@@ -38,7 +38,7 @@ const Container = () => {
     }, []);
 
     return (
-        <div className="min-h-screen flex items-center justify-center w-full px-5 md:px-0 dark:bg-stone-500">
+        <div className="bg-stone-100 min-h-screen flex items-center justify-center w-full px-5 md:px-0">
             <Paper
                 className={classNames(classes.loginContainer, `items-center rounded-2xl w-full md:flex`)}
                 elavation={0}>
@@ -50,7 +50,7 @@ const Container = () => {
                     </Typography>
                     <Typography
                         className="mt-2">
-                        Welcome back
+                        Welcome back!
                     </Typography>
                 </div>
                 <form className={classNames(classes.form, " px-5 py-8 md:px-6 ")}>
@@ -59,10 +59,10 @@ const Container = () => {
                     </Typography>
                     <Alert className={classNames("hidden mb-4")} ref={alertRef} severity="error">
                         <AlertTitle>Error</AlertTitle>
-                    Username or password invalid!
+                        Username or password invalid!
                     </Alert>
                     <fieldset>
-                        <div className={classNames(`border border-solid border-blue-600 flex items-center mt-4 px-3 rounded-lg dark:bg-stone-400`)}>
+                        <div className={classNames(`border border-solid border-red-600 flex items-center mt-4 px-3 rounded-lg dark:bg-stone-400`)}>
                             <AccountCircle className="text-slate-700" />
                             <Input 
                                 className="grow"
@@ -71,7 +71,7 @@ const Container = () => {
                                 required
                             />
                         </div>
-                        <div className={classNames(`border border-solid border-blue-600 flex items-center mt-4 px-3 rounded-lg dark:bg-stone-400`)}>
+                        <div className={classNames(`border border-solid border-red-600 flex items-center mt-4 px-3 rounded-lg dark:bg-stone-400`)}>
                             <IconButton
                                 aria-label="toggle password visibility"
                                 onClick={handleClickShowPassword}
@@ -91,12 +91,12 @@ const Container = () => {
                         </div>
                         <div 
                             className={classNames("flex flex-col sm:items-center mt-6")}>
-                            <Typography component="p" className="ml-4 text-sm dark:text-slate-400">
+                            <Typography component="p" className="ml-4 text-sm">
                                 don't you have an account? 
                                 <Link href="/sign-up">
                                     <a 
                                         className={classNames(classes.signUpLink, 
-                                        "ml-2 text-blue-700 uppercase underline hover:opacity-90")}>
+                                        "ml-2 text-amber-600 uppercase underline hover:opacity-90")}>
                                         sign up.
                                     </a>
                                 </Link>
