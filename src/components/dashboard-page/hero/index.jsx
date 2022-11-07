@@ -10,13 +10,15 @@ const HeroContainer = () => {
     return (
         <section
             className={classNames(classes.container, "relative w-full")}>
-            <div>
+            <div className={classNames(classes.name, `pl-4 pt-8 text-white before:block before:mb-4 sm:pt-12 
+                md:pt-20 xl:pt-24`)}>
                 <Typography
-                    >
+                    component="h1"
+                    className={classNames("font-bold text-2xl sm:text-3xl md:text-4xl xl:text-5xl")}>
                     Rafael Tivane
                 </Typography>
             </div>
-            <SchoolIcon className={classNames(classes.icon, "absolute opacity-60 text-white")} />
+            <SchoolIcon className={classNames(classes.icon, "absolute opacity-70 text-white")} />
         </section>
     );
 };
