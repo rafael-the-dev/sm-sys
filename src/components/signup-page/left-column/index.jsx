@@ -4,17 +4,15 @@ import { useRouter } from "next/router";
 
 import classes from "./styles.module.css";
 
+import SchoolIcon from '@mui/icons-material/School';
+
 const Column = () => {
     const { pathname } = useRouter();
-    
+
     return (
         <div className={classNames(classes.content, {[classes.contentSignup]: pathname === "/sign-up"},
             "flex-col hidden items-center justify-center rounded-l-2xl text-white")}>
-            <Typography
-                component="h1"
-                className="font-bold text-4xl uppercase">
-                Logo
-            </Typography>
+            <SchoolIcon className={classNames(classes.icon)} />
             <Typography
                 className="mt-2">
                 Welcome back!

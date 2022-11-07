@@ -54,7 +54,7 @@ const Container = () => {
                     <div className={classNames(`border border-solid border-red-600 flex items-center mt-4 px-3 rounded-lg dark:bg-stone-400`)}>
                         <AccountCircle className="text-slate-700" />
                         <Input 
-                            className="grow"
+                            className="border-0 grow"
                             placeholder="Username"
                             ref={userNameRef}
                             required
@@ -70,7 +70,7 @@ const Container = () => {
                             { values.showPassword ? <VisibilityOff className="text-slate-700" /> : <Visibility className="text-slate-700" />}
                         </IconButton>
                         <Input 
-                            className="grow"
+                            className="border-0 grow"
                             placeholder="password"
                             required
                             type={values.showPassword ? 'text' : 'password'}

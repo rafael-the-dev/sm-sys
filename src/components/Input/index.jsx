@@ -6,7 +6,7 @@ const Input = forwardRef(({ autoComplete, className, onChange, placeholder, requ
     return (
         <input 
             autoComplete={ Boolean(autoComplete) ? "on": "off" }
-            className={classNames(`border border-red-600 border-solid bg-transparent outline-none px-2 text-sm
+            className={classNames(`bg-transparent outline-none px-2 text-sm
             `, classes.input, className)}
             placeholder={placeholder}
             ref={ref}

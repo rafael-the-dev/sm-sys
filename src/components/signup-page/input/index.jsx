@@ -22,7 +22,7 @@ const DefaultInput = React.forwardRef((props, ref) => {
             <Input 
                 { ...props }
                 className={classNames("border border-solid rounded-lg w-full", 
-                hasErrors() ? "border-red-600" : "border-blue-600" )}
+                hasErrors() ? "border-amber-600" : "border-red-600" )}
                 error={hasErrors()}
                 fullWidth
                 onChange={changeHandler}
