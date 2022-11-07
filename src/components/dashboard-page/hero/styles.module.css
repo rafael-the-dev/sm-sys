@@ -3,6 +3,13 @@
     height: 300px;
 }
 
+.container::after {
+    content: "" !important;
+    background-image:  url(/images/patterns/dashboard-hero-pattern.png);
+    opacity: .44;
+    z-index: 1;
+}
+
 .name::before {
     content: "Student" !important;
     font-size: 1.2rem;

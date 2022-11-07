@@ -33,8 +33,8 @@ const Header = () => {
     if([ "/sign-up", "/login" ].includes(pathname)) return <></>;
 
     return (
-        <header className="flex items-center justify-between px-5 py-2 xl:px-6">
-            <div className="flex items-center">
+        <header className="flex items-center justify-between px-5 py-2 xl:px-8">
+            <div className="flex items-center pl-2 xl:pl-0">
                 <Hidden lgUp>
                     <Menu />
                 </Hidden>
@@ -46,7 +46,7 @@ const Header = () => {
                     <Breadcrumbs></Breadcrumbs>
                 </Hidden>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center pr-2 xl:pr-0">
                 <Hidden smDown>
                     <Typography
                         className="mr-3">{ loggedUser.lastName }, { loggedUser.firstName }</Typography>

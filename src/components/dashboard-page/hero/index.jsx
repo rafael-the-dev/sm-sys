@@ -9,7 +9,8 @@ const HeroContainer = () => {
 
     return (
         <section
-            className={classNames(classes.container, "rounded-xl relative w-full")}>
+            className={classNames(classes.container, `rounded-xl relative w-full after:absolute after:h-full
+            after:left-0 after:top-0 after:w-full`)}>
             <div className={classNames(classes.name, `pl-4 pt-8 text-white before:block before:mb-4 sm:pt-12 sm:pl-8
                 md:pt-20 xl:pt-24`)}>
                 <Typography
