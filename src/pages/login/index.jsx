@@ -1,5 +1,5 @@
 import { Alert, AlertTitle, IconButton, Typography } from '@mui/material';
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 
 import AccountCircle from '@mui/icons-material/AccountCircle';
@@ -9,7 +9,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import classNames from 'classnames'
 import classes from "./styles.module.css";
 
-import { Button, DefaultContainer } from "src/components/signup-page"
+import { Button, Column, DefaultContainer } from "src/components/signup-page"
 import Input from 'src/components/Input';
 
 
@@ -37,20 +37,12 @@ const Container = () => {
         setValues(currentValues => ({ ...currentValues, [prop]: event.target.value }));
     }, []);
 
+    const column = useMemo(() => <Column />, [])
+
     return (
         <DefaultContainer>
-            <div className={classNames(classes.content, "flex-col hidden items-center justify-center rounded-l-2xl text-white")}>
-                <Typography
-                    component="h1"
-                    className="font-bold text-4xl uppercase">
-                    Logo
-                </Typography>
-                <Typography
-                    className="mt-2">
-                    Welcome back!
-                </Typography>
-            </div>
-            <form className={classNames(classes.form, " px-5 py-8 md:px-6 ")}>
+            { column }
+            <form className={classNames(classes.form, "flex flex-col items-stretch justify-center px-5 py-8 md:px-6 ")}>
                 <Typography className="font-bold mb-8 text-center text-2xl uppercase  dark:text-slate-300">
                     Login
                 </Typography>
@@ -86,21 +78,21 @@ const Container = () => {
                             onChange={handleChange('password')}
                         />
                     </div>
-                    <div 
-                        className={classNames("flex flex-col sm:items-center mt-6")}>
-                        <Typography component="p" className="ml-4 text-sm">
-                            don't you have an account? 
-                            <Link href="/sign-up">
-                                <a 
-                                    className={classNames(classes.signUpLink, 
-                                    "ml-2 text-amber-600 uppercase underline hover:opacity-90")}>
-                                    sign up.
-                                </a>
-                            </Link>
-                        </Typography>
-                        <Button >Submit</Button>
-                    </div>
                 </fieldset>
+                <div 
+                    className={classNames("flex flex-col sm:items-center mt-6")}>
+                    <Typography component="p" className="ml-4 text-sm">
+                        don't you have an account? 
+                        <Link href="/sign-up">
+                            <a 
+                                className={classNames(classes.signUpLink, 
+                                "ml-2 text-amber-600 uppercase underline hover:opacity-90")}>
+                                sign up.
+                            </a>
+                        </Link>
+                    </Typography>
+                    <Button >Submit</Button>
+                </div>
             </form>
         </DefaultContainer>
     );

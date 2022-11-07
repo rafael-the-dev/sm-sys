@@ -7,7 +7,7 @@ import classes from "./styles.module.css";
 
 import Validation from "src/models/Validation"
 
-import { Button, DefaultContainer, Input } from "src/components/signup-page"
+import { Button, Column, DefaultContainer, Input } from "src/components/signup-page"
 
 const Container = () => {
     const [ errors, setErrors ] = useState({
@@ -71,21 +71,13 @@ const Container = () => {
 
     const confirmPasswordChangeHandler = useCallback((value) => {
 
-    }, [])
+    }, []);
+
+    const column = useMemo(() => <Column />, [])
 
     return (
         <DefaultContainer>
-            <div className={classNames(classes.content, "flex-col hidden items-center justify-center rounded-l-2xl text-white")}>
-                <Typography
-                    component="h1"
-                    className="font-bold text-4xl uppercase">
-                    Logo
-                </Typography>
-                <Typography
-                    className="mt-2">
-                    Welcome back!
-                </Typography>
-            </div>
+            { column }
             <form className={classNames(classes.form, "flex-col items-stretch justify-center px-5 py-8 md:px-6 ")}>
                 <Typography className="font-bold mb-8 text-center text-2xl uppercase  dark:text-slate-300">
                     Sign up
