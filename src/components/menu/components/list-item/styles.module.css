@@ -1,0 +1,17 @@
+.listItem {
+    border-radius: 0 50px 50px 0 !important;
+    justify-content: flex-start !important;
+    width: 85% !important;
+}
+
+.listItemSelected::before {
+    top: 0;
+}
+
+.listItemSelected::after {
+    bottom: 0;
+}
+
+.listItem svg {
+    margin-right: .7rem;
+}
