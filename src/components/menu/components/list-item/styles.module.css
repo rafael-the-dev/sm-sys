@@ -4,12 +4,26 @@
     width: 100% !important;
 }
 
+.listItemSelected::before, .listItemSelected::after {
+    border-color: #FFF;
+    border-style: solid;
+    content: "";
+    height: 50px;
+    position: absolute;
+    right: -5px;
+    width: 50px;
+}
+
 .listItemSelected::before {
-    top: 0;
+    border-radius: 0 0 25px 0;
+    border-width: 0 6px 6px 0;
+    top: -42px;
 }
 
 .listItemSelected::after {
-    bottom: 0;
+    border-radius: 0 25px 0 0;
+    border-width: 6px 6px 0 0;
+    bottom: -42px;
 }
 
 .listItem svg {
