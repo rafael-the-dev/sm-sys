@@ -11,7 +11,7 @@ const Container = ({ children, href }) => {
 
     return (
         <ListItem classes={{ button: classNames(classes.listItem, "hover:text-amber-600",
-            { [classNames(classes.listItemSelected, "bg-stone-100")]: pathname === href },
+            { [classNames(classes.listItemSelected, "bg-white")]: pathname === href },
             pathname === href ? "text-amber-600" : "text-neutral-700" ) }}
             href={href}>
             { children }

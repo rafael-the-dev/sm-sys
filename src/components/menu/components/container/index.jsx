@@ -23,7 +23,7 @@ const Container = () => {
 
     return (
         <aside 
-            className={classNames(classes.container, "bg-white flex flex-col h-screen justify-between pl-5 pb-6 xl:pl-4",
+            className={classNames(classes.container, "bg-stone-100 flex flex-col h-screen justify-between pl-5 pb-6 xl:pl-4",
             { [classes.containerOpen]: open })}>
             <div>
                 <div className="pr-5 py-4 rounded-full lg:py-3">
