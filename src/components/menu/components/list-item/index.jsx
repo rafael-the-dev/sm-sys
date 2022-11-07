@@ -3,23 +3,17 @@ import classNames from "classnames";
 
 import classes from "./styles.module.css";
 
-import ListItem from "src/components/list-item-button"
-
+import ListItem from "src/components/list-item-button";
 
 const Container = ({ children, href }) => {
 
-    const router = useRouter();
-    const { pathname } = router;
-
-    const clickHandler = () => {
-        Boolean(href) && router.push(href);
-    };
+    const { pathname } = useRouter();
 
     return (
-        <ListItem classes={{ button: classNames(classes.listItem, "hover:text-blue-800",
-        { [classNames(classes.listItemSelected, "bg-stone-300")]: pathname === href },
-        pathname === href ? "text-blue-800" : "text-stone-300" ) }}
-        onClick={clickHandler}>
+        <ListItem classes={{ button: classNames(classes.listItem, "hover:text-amber-600",
+            { [classNames(classes.listItemSelected, "bg-stone-100")]: pathname === href },
+            pathname === href ? "text-amber-600" : "text-neutral-700" ) }}
+            href={href}>
             { children }
         </ListItem>
     );
