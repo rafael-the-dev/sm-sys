@@ -6,7 +6,7 @@
 .container::after {
     content: "" !important;
     background-image:  url(/images/patterns/dashboard-hero-pattern.png);
-    opacity: .44;
+    opacity: .26;
     z-index: 1;
 }
 
