@@ -1,0 +1,8 @@
+@media screen and (min-width: 1024px) {
+    .containr {
+        background-color: #fafaf9d1;
+    }
+    .form {
+        width: calc(100% - 370px);
+    }
+}

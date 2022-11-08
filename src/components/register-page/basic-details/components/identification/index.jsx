@@ -25,7 +25,7 @@ const Identification = () => {
             <Typography>Identification</Typography>
             <div className="flex flex-wrap justify-between mt-4">
                 <TextField 
-                    classes={{ root: "input mdW13" }} 
+                    classes={{ root: "input mdW12" }} 
                     id="first-name" 
                     label="First name" 
                     onChange={changeHandler}
@@ -41,15 +41,21 @@ const Identification = () => {
                         ))
                     }
                 </TextField>
+                <TextField 
+                    classes={{ root: "input mdW12" }} 
+                    id="first-name" 
+                    label="First name" 
+                    variant="standard" 
+                />
                 <DatePicker
-                    className={classNames("input mdW13")}
+                    className={classNames("input mdW12")}
                     label="Birth date"
                     onChange={dateChangeHandler(setIssuanceDate)}
                     value={issuanceDate}
                     renderInput={(params) => <Input {...params} />}
                 />
                 <DatePicker
-                    className={classNames("input mdW13")}
+                    className={classNames("input mdW12")}
                     label="Birth date"
                     maxDate={moment(Date.now().toString()).toDate()}
                     onChange={dateChangeHandler(setExpiryDate)}

@@ -21,7 +21,7 @@ const BasicDetails = () => {
     const birthDateChangeHandler = React.useCallback(newValue => setBirthDate(newValue), [])
 
     return (
-        <div className='pt-8'>
+        <div className='pt-8 xl:pt-0'>
             <div className="flex flex-wrap justify-between">
                 <TextField 
                     classes={{ root: "input mdW12" }} 
@@ -67,19 +67,13 @@ const BasicDetails = () => {
             <BirthPlace />
             <div className="flex flex-wrap justify-between">
                 <TextField 
-                    classes={{ root: "input mdW13" }} 
+                    classes={{ root: "input mdW12" }} 
                     id="first-name" 
                     label="First name" 
                     variant="standard" 
                 />
                 <TextField 
-                    classes={{ root: "input mdW13" }} 
-                    id="last-name" 
-                    label="Last name" 
-                    variant="standard" 
-                />
-                <TextField 
-                    classes={{ root: "input mdW13" }} 
+                    classes={{ root: "input mdW12" }} 
                     id="last-name" 
                     label="Last name" 
                     variant="standard" 

@@ -13,3 +13,9 @@
         width: calc(100% / 3);
     }
 }
+
+@media screen and (min-width: 1024px) {
+    .button {
+        width: 300px;
+    }
+}
