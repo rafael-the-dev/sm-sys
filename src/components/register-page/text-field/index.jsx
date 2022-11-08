@@ -9,7 +9,7 @@ const TextFieldContainer = (props) => {
             <TextField 
                 { ...others }
                 fullWidth
-                variant="standard" 
+                variant="outlined" 
             />
         </div>
     );

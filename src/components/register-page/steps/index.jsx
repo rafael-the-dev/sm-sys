@@ -9,8 +9,8 @@ const Steps = () => {
     ];
 
     return (
-        <div className="overflow-x-scroll">
-            <div className='flex w-fit'>
+        <div className="overflow-x-scroll bg-stone-100 sm:mt-6 sm:overflow-x-hidden sm:rounded-r-xl">
+            <div className='flex w-fit sm:w-full'>
                 {
                     stepsList.map((item, index) => (
                         <Step 

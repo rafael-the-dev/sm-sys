@@ -21,13 +21,13 @@ const Header = () => {
     const { pathname } = router;
 
     const isDynamicTitlePaths = () => {
-        return [ "/dashboard", "/sale", "/sales" ].includes(pathname);
+        return [ "/dashboard", "/sale", "/register" ].includes(pathname);
     };
 
     const dynamicTitle = () => {
         return {
             "/dashboard": "Dashboard",
-            "/sales": "Sales Reports",
+            "/register": "Register",
             "/sale": "New sale"
         }[pathname]
     };
@@ -40,7 +40,7 @@ const Header = () => {
                 <Hidden lgUp>
                     <Menu />
                 </Hidden>
-                { isDynamicTitlePaths() && <Title className={classNames('ml-3', classes.salesTitle)}>{ dynamicTitle() }</Title> }
+                { isDynamicTitlePaths() && <Title className={classNames('', classes.salesTitle)}>{ dynamicTitle() }</Title> }
                 <Hidden xlDown>
                     <Breadcrumbs></Breadcrumbs>
                 </Hidden>
