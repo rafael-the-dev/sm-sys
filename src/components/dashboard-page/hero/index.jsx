@@ -14,7 +14,7 @@ const HeroContainer = () => {
             <div className={classNames(classes.name, `pl-4 pt-8 text-white before:block before:mb-4 sm:pt-12 sm:pl-8
                 md:pt-20 xl:pt-24`)}>
                 <Typography
-                    component="h1"
+                    component="h2"
                     className={classNames("font-bold text-2xl sm:text-3xl md:text-4xl xl:text-5xl")}>
                     Rafael Tivane
                 </Typography>

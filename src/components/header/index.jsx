@@ -21,11 +21,12 @@ const Header = () => {
     const { pathname } = router;
 
     const isDynamicTitlePaths = () => {
-        return [ "/sale", "/sales" ].includes(pathname);
+        return [ "/dashboard", "/sale", "/sales" ].includes(pathname);
     };
 
     const dynamicTitle = () => {
         return {
+            "/dashboard": "Dashboard",
             "/sales": "Sales Reports",
             "/sale": "New sale"
         }[pathname]
