@@ -34,16 +34,13 @@ const Header = () => {
     if([ "/sign-up", "/login" ].includes(pathname)) return <></>;
 
     return (
-        <header className="flex items-center justify-between px-5 py-2 relative xl:px-8">
+        <header className="flex items-center justify-between px-5 py-2 relative xl:px-10">
             <div className="flex items-center pl-2 xl:pl-0">
                 <Hidden lgUp>
                     <Menu />
                 </Hidden>
                 { isDynamicTitlePaths() && <Title className={classNames('ml-3', classes.salesTitle)}>{ dynamicTitle() }</Title> }
                 <Hidden xlDown>
-                    <IconButton className="p-0 hover:bg-transparent">
-                        <ArrowBackIcon />
-                    </IconButton>
                     <Breadcrumbs></Breadcrumbs>
                 </Hidden>
             </div>
