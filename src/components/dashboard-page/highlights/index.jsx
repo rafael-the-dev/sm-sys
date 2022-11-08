@@ -7,7 +7,7 @@ import Highlight from "./components/highlight";
 const HighlightsContainer = () => {
 
     return (
-        <div className={classNames(classes.container, "flex flex-wrap items-stretch justify-between")}>
+        <div className={classNames(classes.container, "flex flex-wrap items-stretch justify-between pt-12")}>
             <Highlight />
             <Highlight />
             <Highlight />
