@@ -3,6 +3,7 @@ import { FormControl, FormControlLabel, FormLabel, MenuItem, Radio, RadioGroup }
 
 import { RegisterContext } from "src/context";
 
+import RadioButton from "src/components/radio-button";
 import TextField from "src/components/register-page/text-field";
 
 const initial = {
@@ -151,9 +152,10 @@ const LocationContainer = () => {
         >
             {
                 optinsList.current.map((item) => (
-                    <FormControlLabel 
+                    <RadioButton 
                         { ...item }
-                        control={<Radio checked={item.value === country.name} onChange={changeHandler("name")} />} 
+                        checked={item.value === country.name} 
+                        onChange={changeHandler("name")} 
                         key={item.value}
                     />
                 ))
