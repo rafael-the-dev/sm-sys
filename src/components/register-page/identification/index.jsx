@@ -5,7 +5,7 @@ import { MenuItem, Typography } from "@mui/material";
 import Input from "@mui/material/TextField";
 import moment from "moment"
 
-import TextField from "../../../text-field";
+import TextField from "../text-field";
 
 const format = date => moment(date).format("MM/DD/YYYY");
 

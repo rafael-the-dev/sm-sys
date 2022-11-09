@@ -5,7 +5,6 @@ import {Button,  MenuItem } from "@mui/material";
 import Input from "@mui/material/TextField";
 
 import BirthPlace from "./components/locations";
-import Identification from "./components/identification";
 import TextField from "../text-field";
 
 const BasicDetails = () => {
@@ -78,19 +77,6 @@ const BasicDetails = () => {
                     label="Last name" 
                     variant="standard" 
                 />
-            </div>
-            <Identification />
-            <div className='flex justify-end mt-8'>
-                <Button
-                    className={classNames("border-red-600 mr-8 text-red-600 px-8 py-2 hover:text-white hover:bg-red-600 hover:border-red-600")}
-                    variant="outlined">
-                    Cancel
-                </Button>
-                <Button
-                    className={classNames("bg-amber-600 px-8 py-2 text-white hover:bg-amber-800")}
-                    variant="contained">
-                    Next
-                </Button>
             </div>
         </div>
     );

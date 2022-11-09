@@ -4,6 +4,7 @@ import Step from "./components/step";
 const Steps = () => {
     const stepsList = [
         { label: "Personal details", value: "personal-details" },
+        { label: "Identification", value: "identification-document" },
         { label: "Education", value: "education" },
         { label: "Personal details", value: "" }
     ];
