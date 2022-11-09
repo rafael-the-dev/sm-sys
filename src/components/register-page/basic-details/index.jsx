@@ -20,7 +20,7 @@ const BasicDetails = () => {
     const birthDateChangeHandler = React.useCallback(newValue => setBirthDate(newValue), [])
 
     return (
-        <div className='pt-8 xl:pt-0'>
+        <div className=''>
             <div className="flex flex-wrap justify-between">
                 <TextField 
                     classes={{ root: "input mdW12" }} 

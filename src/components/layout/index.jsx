@@ -5,7 +5,7 @@ import { useRouter } from "next/router"
 
 import classes from "./styles.module.css";
 
-//import ContextProvider from "./components/ContextProvider"
+import ContextProvider from "./components/context-provider"
 import Header from "../header";
 //import Footer from "../footer";
 //import Loading from "./components/loading";
@@ -38,8 +38,10 @@ const LayoutContainer = ({ children }) => {
                 [ "/sign-up", "/login" ].includes(pathname) ? "w-full" : classes.main,
                 { "flex flex-col h-full items-stretch": pathname === "/sale" })}>
                     <Header />
-                    { children }
-                    { printIframeMemo }
+                    <ContextProvider>
+                        { children }
+                        { printIframeMemo }
+                    </ContextProvider>
             </div>
         </div>
     );
