@@ -4,7 +4,6 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import {Button,  MenuItem } from "@mui/material";
 import Input from "@mui/material/TextField";
 
-import BirthPlace from "./components/locations";
 import TextField from "../text-field";
 
 const BasicDetails = () => {
@@ -61,21 +60,6 @@ const BasicDetails = () => {
                     onChange={birthDateChangeHandler}
                     value={birthDate}
                     renderInput={(params) => <Input {...params} />}
-                />
-            </div>
-            <BirthPlace />
-            <div className="flex flex-wrap justify-between">
-                <TextField 
-                    classes={{ root: "input mdW12" }} 
-                    id="first-name" 
-                    label="First name" 
-                    variant="standard" 
-                />
-                <TextField 
-                    classes={{ root: "input mdW12" }} 
-                    id="last-name" 
-                    label="Last name" 
-                    variant="standard" 
                 />
             </div>
         </div>

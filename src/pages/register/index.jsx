@@ -6,12 +6,13 @@ import classes from  "./styles.module.css";
 
 import { RegisterContext } from "src/context";
 
-import { BasicDetails, Identification, Steps } from "src/components/register-page";
+import { Address, BasicDetails, Identification, Steps } from "src/components/register-page";
 import Link from "src/components/link";
 
 const Container = () => {
     const { step } = React.useContext(RegisterContext);
 
+    const address = React.useMemo(() => <Address />, []);
     const basicDetails = React.useMemo(() => <BasicDetails />, []);
     const identification = React.useMemo(() => <Identification />, []);
 
@@ -32,6 +33,7 @@ const Container = () => {
                 <form className={classNames(classes.form, "flex flex-col items-stretch justify-between pt-8 xl:pt-0")}>
                     {
                         {
+                            address,
                             "identification-document": identification,
                             "personal-details": basicDetails
                         }[step]
