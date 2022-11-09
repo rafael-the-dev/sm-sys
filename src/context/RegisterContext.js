@@ -4,16 +4,21 @@ const RegisterContext = React.createContext();
 RegisterContext.displayName = "RegisterContext";
 
 const RegisterContextProvider = ({ children }) => {
-    const [ step, setStep ] = React.useState("personal-details");
+    const [ country, setCountry ] = React.useState({
+        city: "majancaze",
+        name: "mozambique",
+        province: "Gaza"
+    });
 
     const childrenMemo = React.useMemo(() => children, [ children ])
 
     return (
         <RegisterContext.Provider 
             value={{
-                step, setStep
+                country, 
+                setCountry
             }}>
-            { childrenMemo }
+            { children }
         </RegisterContext.Provider>
     );
 };

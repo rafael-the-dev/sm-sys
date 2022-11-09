@@ -1,6 +1,8 @@
 import * as React from "react";
 import { FormControl, FormControlLabel, FormLabel, MenuItem, Radio, RadioGroup } from "@mui/material";
 
+import { RegisterContext } from "src/context";
+
 import TextField from "src/components/register-page/text-field";
 
 const initial = {
@@ -10,8 +12,7 @@ const initial = {
 };
 
 const LocationContainer = () => {
-    const [ country, setCountry ] = React.useState(initial);
-
+    const { country, setCountry } = React.useContext(RegisterContext)
     const countryRef = React.useRef(initial);
 
     const optinsList = React.useRef([
@@ -90,9 +91,13 @@ const LocationContainer = () => {
         }
 
         return { ...currentCountry, ...result, [key]: e.target.value };
-    }), []);
+    }), [ setCountry ]);
 
-    const isMozambique = React.useMemo(() => country.name.toLowerCase() === "mozambique", [ country ])
+    const isMozambique = React.useMemo(() => country.name.toLowerCase() === "mozambique", [ country ]);
+
+    const labelMemo = React.useMemo(() => (
+        <FormLabel id="location">Local of birth</FormLabel>
+    ), [])
 
     const otherCountryMemo = React.useMemo(() => (
         <TextField
@@ -137,6 +142,25 @@ const LocationContainer = () => {
         />
     ), [ country, changeHandler, isMozambique ]);
 
+    const radioGroupMemo = React.useMemo(() => (
+        <RadioGroup
+            aria-labelledby="location"
+            className="my-2"
+            name="radio-buttons-group"
+            row
+        >
+            {
+                optinsList.current.map((item) => (
+                    <FormControlLabel 
+                        { ...item }
+                        control={<Radio checked={item.value === country.name} onChange={changeHandler("name")} />} 
+                        key={item.value}
+                    />
+                ))
+            }
+        </RadioGroup>
+    ), [ country, changeHandler ])
+
     React.useEffect(() => {
         if(country.name === "mozambique") {
             countryRef.current = country;
@@ -146,23 +170,8 @@ const LocationContainer = () => {
     return (
         <div>
             <FormControl>
-                <FormLabel id="location">Local of birth</FormLabel>
-                <RadioGroup
-                    aria-labelledby="location"
-                    className="my-2"
-                    name="radio-buttons-group"
-                    row
-                >
-                    {
-                        optinsList.current.map((item, index) => (
-                            <FormControlLabel 
-                                { ...item }
-                                control={<Radio checked={item.value === country.name} onChange={changeHandler("name")} />} 
-                                key={item.value}
-                            />
-                        ))
-                    }
-                </RadioGroup>
+                { labelMemo }
+                { radioGroupMemo }
             </FormControl>
             <div className="flex flex-wrap justify-between">
                 { !isMozambique && otherCountryMemo }

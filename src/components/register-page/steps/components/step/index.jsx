@@ -4,12 +4,13 @@ import classNames from "classnames";
 
 import classes from "./styles.module.css";
 
-import { RegisterContext } from "src/context";
+import { RegisterStepsContext } from "src/context";
 
 const Step = ({ id, index, label }) => {
-    const { step, setStep } = React.useContext(RegisterContext);
+    const { step, setStep } = React.useContext(RegisterStepsContext);
 
     const clickHandler = React.useCallback(() => setStep(id), [ id ]);
+    
     return (
         <Button
             className={classNames(classes.button, `capitalize flex items-center justify-between sm:py-2 xl:py-3`,

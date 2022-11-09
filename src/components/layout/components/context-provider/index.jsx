@@ -1,13 +1,13 @@
 import { useRouter } from "next/router"
 
-import { RegisterContextProvider } from "src/context"
+import { RegisterStepsContextProvider } from "src/context"
 
 const ContextProvider = ({ children }) => {
     const { pathname } = useRouter();
 
     const getProvider = () => {
         return {
-            "/register": <RegisterContextProvider>{ children }</RegisterContextProvider>,
+            "/register": <RegisterStepsContextProvider>{ children }</RegisterStepsContextProvider>,
         }[pathname]
     };
 
