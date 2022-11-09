@@ -16,7 +16,7 @@ const LocationContainer = () => {
     const { country, setCountry } = React.useContext(RegisterContext)
     const countryRef = React.useRef(initial);
 
-    const optinsList = React.useRef([
+    const optionsList = React.useRef([
         { label: "Mozambique", value: "mozambique" },
         { label: "Other", value: "" }
     ]);
@@ -91,7 +91,7 @@ const LocationContainer = () => {
             result = countryRef.current;
         }
 
-        return { ...currentCountry, ...result, [key]: e.target.value };
+        return { ...currentCountry, ...result, [key]: value };
     }), [ setCountry ]);
 
     const isMozambique = React.useMemo(() => country.name.toLowerCase() === "mozambique", [ country ]);
@@ -110,7 +110,7 @@ const LocationContainer = () => {
         />
     ), [ country ])
 
-    const pronvicesMemo = React.useMemo(() => (
+    const provincesMemo = React.useMemo(() => (
         <TextField
             classes={{ root: `input mdW1${isMozambique ? 2 : 3}` }} 
             id="pronvice"
@@ -151,7 +151,7 @@ const LocationContainer = () => {
             row
         >
             {
-                optinsList.current.map((item) => (
+                optionsList.current.map((item) => (
                     <RadioButton 
                         { ...item }
                         checked={item.value === country.name} 
@@ -177,7 +177,7 @@ const LocationContainer = () => {
             </FormControl>
             <div className="flex flex-wrap justify-between">
                 { !isMozambique && otherCountryMemo }
-                { pronvicesMemo }
+                { provincesMemo }
                 { cityMemo }
             </div>
         </div>
