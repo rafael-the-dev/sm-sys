@@ -12,11 +12,13 @@ const Highlight = () => (
     <div className={classNames(classes.container, 'flex justify-between px-4 py-6 rounded-xl')}>
         <div>
             <Typography>Lorem ipsum</Typography>
-            <Button
-                className={classNames("capitalize mt-3 text-amber-600")}
-                startIcon={<TrendingFlatIcon />}>
-                View
-            </Button>
+            <Link className="inline-block mt-3" href="/register">
+                <Button
+                    className={classNames("capitalize text-amber-600 hover:bg-transparent")}
+                    startIcon={<TrendingFlatIcon />}>
+                    View
+                </Button>
+            </Link>
         </div>
         <ImportContactsIcon />
     </div>
