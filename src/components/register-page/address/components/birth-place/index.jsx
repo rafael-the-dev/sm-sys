@@ -1,18 +1,22 @@
 import * as React from "react";
 import { FormControl, FormControlLabel, FormLabel, MenuItem, Radio, RadioGroup } from "@mui/material";
 
-import TextField from "src/components/register-page/text-field"
+import TextField from "src/components/register-page/text-field";
+
+const initial = {
+    city: "majancaze",
+    name: "mozambique",
+    province: "Gaza"
+};
 
 const LocationContainer = () => {
-    const [ country, setCountry ] = React.useState({
-        city: "majancaze",
-        name: "mozambique",
-        province: "Gaza"
-    });
+    const [ country, setCountry ] = React.useState(initial);
+
+    const countryRef = React.useRef(initial);
 
     const optinsList = React.useRef([
         { label: "Mozambique", value: "mozambique" },
-        { label: "Other", value: "OTHER" }
+        { label: "Other", value: "" }
     ]);
 
     const provincesList = React.useRef([
@@ -77,23 +81,40 @@ const LocationContainer = () => {
         const { value } = e.target;
         let result = {};
 
-        if(key === "province") {
+        if(key === "province" && currentCountry.name === "mozambique") {
             result.city = provincesList.current.find(item => item.value === value).city;
         }
+
+        if(key === "name" && value === "mozambique") {
+            result = countryRef.current;
+        }
+
         return { ...currentCountry, ...result, [key]: e.target.value };
     }), []);
 
+    const isMozambique = React.useMemo(() => country.name.toLowerCase() === "mozambique", [ country ])
+
+    const otherCountryMemo = React.useMemo(() => (
+        <TextField
+            classes={{ root: "input mdW13" }} 
+            id="country-name"
+            label='Country name'
+            onChange={changeHandler("name")}
+            value={country.name}
+        />
+    ), [ country ])
+
     const pronvicesMemo = React.useMemo(() => (
         <TextField
-            classes={{ root: "input mdW12" }} 
+            classes={{ root: `input mdW1${isMozambique ? 2 : 3}` }} 
             id="pronvice"
             label='Pronvice'
             onChange={changeHandler("province")}
             value={country.province}
-            select
+            select={isMozambique}
             >
             {
-                provincesList.current.map(item => (
+                isMozambique && provincesList.current.map(item => (
                     <MenuItem
                         { ...item }
                         key={item.value}>
@@ -102,19 +123,25 @@ const LocationContainer = () => {
                 ))
             }
         </TextField>
-    ), [ country, changeHandler ]);
+    ), [ country, changeHandler, isMozambique ]);
 
     const cityMemo = React.useMemo(() => (
         <TextField 
-            classes={{ root: "input mdW12" }} 
+            classes={{ root: `input mdW1${isMozambique ? 2 : 3}` }} 
             id="city" 
-            inputProps={{ readOnly: Boolean(country.name === "mozambique") }}
+            inputProps={{ readOnly: isMozambique }}
             label="City" 
             onChange={changeHandler("city")}
             value={country.city}
             variant="standard" 
         />
-    ), [ country, changeHandler ])
+    ), [ country, changeHandler, isMozambique ]);
+
+    React.useEffect(() => {
+        if(country.name === "mozambique") {
+            countryRef.current = country;
+        }
+    }, [ country ])
 
     return (
         <div>
@@ -138,9 +165,8 @@ const LocationContainer = () => {
                 </RadioGroup>
             </FormControl>
             <div className="flex flex-wrap justify-between">
-                {
-                    country.name === "mozambique" ? pronvicesMemo : <></>
-                }
+                { !isMozambique && otherCountryMemo }
+                { pronvicesMemo }
                 { cityMemo }
             </div>
         </div>
