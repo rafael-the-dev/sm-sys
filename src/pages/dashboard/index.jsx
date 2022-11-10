@@ -1,13 +1,14 @@
 
-import { Hero, Highlights } from "src/components/dashboard-page"
+import { Hero, Highlights } from "src/components/dashboard-page";
+import Main from "src/components/main"
 
 const DashboardContainer = () => {
 
     return (
-        <main className="h-full px-5 w-full xl:px-6">
+        <Main>
             <Hero />
             <Highlights />
-        </main>
+        </Main>
     );
 };
 

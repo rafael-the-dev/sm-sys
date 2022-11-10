@@ -7,18 +7,18 @@ import moment from "moment"
 
 import TextField from "../text-field";
 
-const format = date => moment(date).format("MM/DD/YYYY");
+const format = date => moment(date).format("DD/MM/YYYY");
 
 const Identification = () => {
-    const [ expiryDate, setExpiryDate ] = React.useState(format(Date.now()));
-    const [ issuanceDate, setIssuanceDate ] = React.useState(format(moment(Date.now()).subtract(5, "years")));
+    const [ expiryDate, setExpiryDate ] = React.useState("");
+    const [ issuanceDate, setIssuanceDate ] = React.useState("");
     const [ value, setValue ] = React.useState("BI");
 
     const optionsList = React.useRef([
         { label: "B.I", value: "BI" },
         { label: "Passport", value: "PASSPORT" }
     ]);
-
+    
     const changeHandler = React.useCallback(e => setValue(e.target.value), []);
     const dateChangeHandler = React.useCallback(func => newValue => func(newValue), []);
     
@@ -37,7 +37,9 @@ const Identification = () => {
                 >
                     {
                         optionsList.current.map(item => (
-                            <MenuItem>
+                            <MenuItem
+                                { ...item }
+                                key={item.value}>
                                 { item.label }
                             </MenuItem>
                         ))
@@ -51,6 +53,7 @@ const Identification = () => {
                 />
                 <DatePicker
                     className={classNames("input mdW12")}
+                    inputFormat="DD/MM/YYYY"
                     label="Issuance date"
                     minDate={format(moment(Date.now()).subtract(10, "years"))}
                     maxDate={format(expiryDate)}
@@ -61,8 +64,9 @@ const Identification = () => {
                 <DatePicker
                     className={classNames("input mdW12")}
                     label="Expire date"
-                    minDate={format(issuanceDate)}
-                    maxDate={format(moment(Date.now()).add(10, "years"))}
+                    inputFormat="DD/MM/YYYY"
+                    minDate={moment(issuanceDate).format('dd/MM/y')}
+                    maxDate={moment(Date.now()).add(10, "years").format('dd/MM/y')}
                     onChange={dateChangeHandler(setExpiryDate)}
                     value={expiryDate}
                     renderInput={(params) => <Input {...params} />}

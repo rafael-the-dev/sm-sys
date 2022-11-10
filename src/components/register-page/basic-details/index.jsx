@@ -1,8 +1,9 @@
 import * as React from "react";
 import classNames from "classnames";
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import {Button,  MenuItem } from "@mui/material";
+import { MenuItem } from "@mui/material";
 import Input from "@mui/material/TextField";
+import moment from "moment";
 
 import TextField from "../text-field";
 
@@ -16,7 +17,15 @@ const BasicDetails = () => {
     ]);
 
     const categoryChangeHandler = React.useCallback(e => setCategory(e.target.value), []);
-    const birthDateChangeHandler = React.useCallback(newValue => setBirthDate(newValue), [])
+    const birthDateChangeHandler = React.useCallback(newValue => setBirthDate(newValue), []);
+
+    const getMaxDate = React.useCallback(() => {
+        /*const date = moment(Date.now());
+        date.set('month', 11);
+        date.set('date', 31);*/
+        
+        return moment(Date.now()).subtract(5, "years").format('DD/MM/YYYY');
+    }, []);
 
     return (
         <div className=''>
@@ -56,7 +65,9 @@ const BasicDetails = () => {
                 </TextField>
                 <DatePicker
                     className={classNames("input mdW12")}
+                    inputFormat="DD/MM/YYYY"
                     label="Birth date"
+                    maxDate={getMaxDate()}
                     onChange={birthDateChangeHandler}
                     value={birthDate}
                     renderInput={(params) => <Input {...params} />}

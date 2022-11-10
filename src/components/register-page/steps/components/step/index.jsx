@@ -9,7 +9,7 @@ import { RegisterStepsContext } from "src/context";
 const Step = ({ id, index, label }) => {
     const { step, setStep } = React.useContext(RegisterStepsContext);
 
-    const clickHandler = React.useCallback(() => setStep(id), [ id ]);
+    const clickHandler = React.useCallback(() => setStep(id), [ id, setStep ]);
     
     return (
         <Button

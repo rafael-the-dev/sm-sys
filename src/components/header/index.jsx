@@ -10,6 +10,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { LoginContext } from "src/context";
 
 import Avatar from "./components/avatar";
+import Link from "../link";
 import Menu from "src/components/menu";
 import SearchField from "./components/search-field";
 import Title from "../title";
@@ -21,15 +22,20 @@ const Header = () => {
     const { pathname } = router;
 
     const isDynamicTitlePaths = () => {
-        return [ "/dashboard", "/sale", "/register" ].includes(pathname);
+        return [ "/assessments", "/dashboard", "/sale", "/register" ].includes(pathname);
     };
 
     const dynamicTitle = () => {
         return {
+            "/assessments": "Assessments",
             "/dashboard": "Dashboard",
             "/register": "Register",
             "/sale": "New sale"
         }[pathname]
+    };
+
+    const hasIconButton = () => {
+        return [ "/assessments" ].includes(pathname);
     };
 
     if([ "/sign-up", "/login" ].includes(pathname)) return <></>;
@@ -39,6 +45,15 @@ const Header = () => {
             <div className="flex items-center pl-2 xl:pl-0">
                 <Hidden lgUp>
                     <Menu />
+                </Hidden>
+                <Hidden xlDown>
+                    <Link
+                        className={classNames({ "hidden": !hasIconButton() })}
+                        href="/dashboard">
+                        <IconButton >
+                            <ArrowBackIcon />
+                        </IconButton>
+                    </Link>
                 </Hidden>
                 { isDynamicTitlePaths() && <Title className={classNames('', classes.salesTitle)}>{ dynamicTitle() }</Title> }
                 <Hidden xlDown>

@@ -17,8 +17,8 @@ const LocationContainer = () => {
     const countryRef = React.useRef(initial);
 
     const optionsList = React.useRef([
-        { label: "Mozambique", value: "mozambique" },
-        { label: "Other", value: "" }
+        { key: "mozambique", label: "Mozambique", value: "mozambique" },
+        { key: "other", label: "Other", value: "" }
     ]);
 
     const provincesList = React.useRef([
@@ -108,7 +108,7 @@ const LocationContainer = () => {
             onChange={changeHandler("name")}
             value={country.name}
         />
-    ), [ country ])
+    ), [ country, changeHandler ])
 
     const provincesMemo = React.useMemo(() => (
         <TextField
@@ -156,7 +156,7 @@ const LocationContainer = () => {
                         { ...item }
                         checked={item.value === country.name} 
                         onChange={changeHandler("name")} 
-                        key={item.value}
+                        key={item.key}
                     />
                 ))
             }

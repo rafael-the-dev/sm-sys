@@ -3,18 +3,18 @@ import * as React from "react";
 import Step from "./components/step";
 
 const Steps = () => {
-    const stepsList = [
+    const stepsList = React.useRef([
         { label: "Personal details", value: "personal-details" },
         { label: "Address", value: "address" },
         { label: "Identification", value: "identification-document" },
         { label: "Education", value: "education" },
         { label: "Personal details", value: "" }
-    ];
+    ]);
 
     const stepsMemo = React.useMemo(() => (
         <div className='flex w-fit sm:w-full xl:flex-col'>
             {
-                stepsList.map((item, index) => (
+                stepsList.current.map((item, index) => (
                     <Step 
                         id={item.value}
                         index={index + 1}
