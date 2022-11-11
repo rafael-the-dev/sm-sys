@@ -8,10 +8,13 @@ import classes from "./styles.module.css"
 
 import Link from "src/components/link"
 
-const Highlight = ({ href }) => (
+const Highlight = ({ icon, href, title }) => (
     <div className={classNames(classes.container, 'flex justify-between px-4 py-6 rounded-xl')}>
         <div>
-            <Typography>Lorem ipsum</Typography>
+            <Typography
+                component="h2">
+                { title ?? "Lorem ipsum" }
+            </Typography>
             <Link className="inline-block mt-3" href={ href ?? "/register" }>
                 <Button
                     className={classNames("capitalize text-amber-600 hover:bg-transparent")}
@@ -20,7 +23,7 @@ const Highlight = ({ href }) => (
                 </Button>
             </Link>
         </div>
-        <ImportContactsIcon />
+        { icon ?? <ImportContactsIcon /> }
     </div>
 );
 
